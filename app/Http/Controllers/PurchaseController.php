@@ -29,6 +29,12 @@ class PurchaseController extends Controller
       $user_id = array_values($session_user);
         $id  = $user_id[3];
 
+        
+          // echo '<pre>';
+          //                  print_r($id);
+          //                  exit;
+
+
          
         if (!isset($id))
          {
@@ -48,12 +54,21 @@ class PurchaseController extends Controller
           }
                    
         
-         $userdetails = User::find($id);
+         $userdetails = User::where('id', $id)->first();
+
+         
+
+          // echo '<pre>';
+          //                  print_r($userdetails);
+          //                  exit;
+
 
           $userdetails = [
                         "name" => $userdetails->name,
                         "email" => $userdetails->email
                           ];
+           
+
             $userdetail   =   array_values($userdetails);              
 
            $users   =   $userdetail[1]; 

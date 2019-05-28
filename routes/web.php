@@ -39,11 +39,11 @@ Route::get('/welcome', function() {
 
 Route::get('/userhome', 'UserController@index')->name('userhome');
 
- Route::get('purchase', 'PurchaseController@index');
+ // Route::get('purchase', 'PurchaseController@index');
 
 Route::get('top', 'TopupController@index')->name('top');
 
-Route::post('/purchase', 'PurchaseController@index');
+Route::post('purchase', 'PurchaseController@index');
 
 
 
