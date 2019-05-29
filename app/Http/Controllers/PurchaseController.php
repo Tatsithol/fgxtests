@@ -9,6 +9,7 @@ use App\User;
 use App\Account;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 
@@ -22,17 +23,29 @@ class PurchaseController extends Controller
     {  
  
         // @tatsithol retrieve all products
+          $user = Auth::user();
 
-      session_start();
+          $id = Auth::id();
 
-       $session_user = $request->session()->all();
-      $user_id = array_values($session_user);
-        $id  = $user_id[3];
+           // echo '<pre>';
+           //                 print_r($id);
+           //                 exit;
 
-        
-          // echo '<pre>';
-          //                  print_r($id);
-          //                  exit;
+
+
+
+
+
+      // session_start();
+
+      //  $session_user = $request->session()->all();
+      // $user_id = array_values($session_user);
+      //   $id  = $user_id[3];
+
+
+      //     echo '<pre>';
+      //                      print_r($user_id);
+      //                      exit;
 
 
          

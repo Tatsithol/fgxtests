@@ -53,7 +53,9 @@
 
 
 
-                                    @if($newaccount[1] <= $discount)
+                                    @if($newaccount[1]  <=  $discount)
+
+
                                        
                                        <script type="javascript">
 

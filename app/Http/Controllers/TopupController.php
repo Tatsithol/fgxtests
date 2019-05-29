@@ -8,6 +8,8 @@ use App\User;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class TopupController extends Controller
 {
     /**
@@ -18,11 +20,11 @@ class TopupController extends Controller
     public function index(Request $request)
     {
         // @tatsithol top up account
-          session_start();
+          $user = Auth::user();
 
-       $session_user = $request->session()->all();
-       $user_id = array_values($session_user);
-        $id  = $user_id[3];
+          $id = Auth::id();
+
+
 
         $userdetails = User::find($id);
 
@@ -109,11 +111,10 @@ class TopupController extends Controller
                  
                 $email = $_POST['email'];
 
-                Account::find(1)
+                $update = Account::find(1)
                    ->where('email', $email)
                       ->update(['balance' => $balance ]);
 
-          
                     
                }
 
