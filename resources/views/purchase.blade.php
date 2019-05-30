@@ -2,6 +2,8 @@
 
 @section('content')
 
+                               
+
 <!-- @tatsithol start inner section changing -->
 
       <div class="row">
@@ -53,25 +55,22 @@
 
 
 
-                                    @if($newaccount[1]  <=  $discount)
+                                @if ($newaccount[1] < $discount)
 
+                                 <p>     <a class="btn btn-success" role="button" data-toggle="modal" data-target="#myModal">Pay Now</a> </p> 
 
-                                       
-                                       <script type="javascript">
+                                 @else
 
-                                        $(function() {
-                                        $('#myModal').modal('show');
-                                        });
-                                       </script>
-                                      @endif
+                                 <p>     <a class="btn btn-success" role="button" data-toggle="modal" data-target="#payModal">Pay Now</a> </p>
 
-                                    
-                             
-                             <p>     <a class="btn btn-success" role="button" data-toggle="modal" data-target="#myModal">Pay Now</a> </p>   
+                                 @endif
 
                                 
                             </div>
-                        </div>
+                           </div>
+                                         
+
+
 
                          <div class="col-md-4 text-center col-sm-6 col-xs-6">
                         <div class="thumbnail product-box">
@@ -84,6 +83,13 @@
                                 
                             </div>
                         </div>
+
+                          <!-- @tatsithol the pay modal -->
+
+
+                          <!-- end the pay modal -->
+
+
 
 
                     </div>
@@ -99,7 +105,10 @@
              @endsection
                 
 
-                <!-- Modal -->
+                                   <!-- Modal -->
+                           
+                                     
+          
 
             
     
@@ -117,14 +126,16 @@
           <h4 class="modal-title">Tat Shop</h4>
         </div>
         <div class="modal-body">
-          <p>Your Account Balance is less than the Cost Price<br>Please <strong>  TOP UP  </strong> <br><h3>Avail Balance :   <strong>${{$newaccount[1]}}</h3></p>
+          <p>Your Account Balance is less than the Cost Price<br>Please <strong>  TOP UP  </strong> <br><h3>Avail Balance :   <strong>${{$newaccount[1]}}</strong></h3></p>
+
+         <p> <h3>Cost Price :   <strong>${{$discount}}</strong></h3></p>   
         </div>
         <div class="modal-footer">
          
        <a href="{{ route('userhome') }}"" role="button"  class="btn btn-default" data-dismiss="modal">Close</a>
       
 
-      <p>     <a href="{{ route('top') }}" class="btn btn-success" >Top Up</a> </p>   
+         <a href="{{ route('top') }}" class="btn btn-success" >Top Up</a>   
 
       </div>
 
@@ -137,6 +148,51 @@
   </div>
   
 </div>
+
+<!-- @tatsithol pay modal -->
+
+ <div class="modal fade" id="payModal" role="dialog">
+    <div class="modal-dialog">
+
+        
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tat Shop</h4>
+        </div>
+        <div class="modal-body">
+          <p><h3>Please carefully check all details: Transaction is non reversable</h3></p>
+
+         <h3>Product           :<strong>{{$newproduct[1]}}</strong></h3>
+
+         <h3>Discount price : <strong>${{$discount}}</h3>
+
+         <h3>Avail Balance   : <strong>${{$newaccount[1]}}</strong></h3>   
+        </div>
+        <div class="modal-footer">
+         
+       <a href="{{ route('userhome') }}"" role="button"  class="btn btn-default" data-dismiss="modal">Close</a>
+      
+
+       <a href="{{ route('top') }}" class="btn btn-success" >Pay</a>   
+
+      </div>
+
+
+    
+
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+
+                                  
+
+
 
 
 

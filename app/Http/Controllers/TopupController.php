@@ -106,10 +106,30 @@ class TopupController extends Controller
         //
 
         if(isset($_POST['email'])){
-                $balance = $_POST['voucher']; 
+                $topbalance = $_POST['voucher']; 
 
                  
                 $email = $_POST['email'];
+
+
+        $accounts = Account::find(1)->where('email',  $email)->first();
+
+           $accounts = [
+                        "email" => $accounts->email,
+                        "balance" => $accounts->balance     
+                    ];
+
+              $newaccount   =   array_values($accounts);
+
+             
+
+
+
+               $balance =  $topbalance +  $newaccount[1];
+
+                 // echo '<pre>';
+                 //             print_r($balance);
+                 //             exit;
 
                 $update = Account::find(1)
                    ->where('email', $email)
