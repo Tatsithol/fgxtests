@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Account;
 use App\User;
+use App\Acc_tran;
 
 use Illuminate\Http\Request;
 
@@ -44,6 +45,8 @@ class TopupController extends Controller
                     ];
 
               $newaccount   =   array_values($accounts);
+
+
 
 
          // echo '<pre>';
@@ -104,6 +107,9 @@ class TopupController extends Controller
         //@tatsithol update balance
         
         //
+        $user = Auth::user();
+
+          $id = Auth::id();
 
         if(isset($_POST['email'])){
                 $topbalance = $_POST['voucher']; 
@@ -130,6 +136,14 @@ class TopupController extends Controller
                  // echo '<pre>';
                  //             print_r($balance);
                  //             exit;
+
+          $trans = 1;
+
+              Acc_tran::insert(
+            ['user_id' => $id, 'transaction' => $trans,
+              'amount' => $topbalance, 'balance' => $balance,
+              'created_at' => date('Y-m-d H:i:s'),
+                 'updated_at' => date('Y-m-d H:i:s') ]   );
 
                 $update = Account::find(1)
                    ->where('email', $email)

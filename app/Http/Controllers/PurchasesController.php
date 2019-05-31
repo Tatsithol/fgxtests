@@ -34,25 +34,7 @@ class PurchasesController extends Controller
           }
         
 
-       // if(isset($_POST['productCard'])){
-       //    $proid = $_POST['productCard'];
-       //    }
-       //             if(isset($proid)){ 
-       //              echo '<pre>';
-       //                     print_r($proid);
-       //                     exit;
-       //    }
-        
-
-
-        //  $id= $_POST['productCard'];
-
-        // echo '<pre>';
-        //                    print_r($id);
-        //                    exit;
-
-
-
+     
 
     }
 

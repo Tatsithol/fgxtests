@@ -32,22 +32,6 @@ class PurchaseController extends Controller
            //                 exit;
 
 
-
-
-
-
-      // session_start();
-
-      //  $session_user = $request->session()->all();
-      // $user_id = array_values($session_user);
-      //   $id  = $user_id[3];
-
-
-      //     echo '<pre>';
-      //                      print_r($user_id);
-      //                      exit;
-
-
          
         if (!isset($id))
          {
@@ -69,12 +53,7 @@ class PurchaseController extends Controller
         
          $userdetails = User::where('id', $id)->first();
 
-         
-
-          // echo '<pre>';
-          //                  print_r($userdetails);
-          //                  exit;
-
+        
 
           $userdetails = [
                         "name" => $userdetails->name,

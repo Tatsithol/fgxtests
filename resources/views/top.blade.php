@@ -14,6 +14,8 @@
     </div>
 @endif
 
+
+
   
   <h2>Please Top Up your Balance to buy</h2>
   <p>Please be accurate: Once you top up transcation may not be reversed</p>

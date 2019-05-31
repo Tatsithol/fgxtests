@@ -17,11 +17,11 @@
 
 Auth::routes();
 
-// Route::get('/home', 'UserController@index');
+// Route::resource('account', 'AccountController');
 Route::get('/home', 'HomeController@index');
 
 
-Route::post('acc_update','TopupController@update');
+Route::post('acc_update','Account@index');
 
 Route::get('/', ['as' => 'welcome', 'uses' => 'ProductsController@index']);
 
@@ -29,17 +29,15 @@ Route::get('/welcome', function() {
     //
 })->name('ProductsController@index');
 
-// Route::get('/userhome', ProductsController@index () {
-//     // Retrieve a piece of data from the session...
-//     $id = session('id');
-
-//     })->name('userhome');
+Route::get('account', 'AccountController@index')->name('account');
 
 
 
 Route::get('/userhome', 'UserController@index')->name('userhome');
 
- // Route::get('purchase', 'PurchaseController@index');
+Route::post('sale', 'SaleController@create'); 
+
+Route::post('update', 'TopupController@update');
 
 Route::get('top', 'TopupController@index')->name('top');
 

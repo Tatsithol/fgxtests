@@ -128,7 +128,9 @@
         <div class="modal-body">
           <p>Your Account Balance is less than the Cost Price<br>Please <strong>  TOP UP  </strong> <br><h3>Avail Balance :   <strong>${{$newaccount[1]}}</strong></h3></p>
 
-         <p> <h3>Cost Price :   <strong>${{$discount}}</strong></h3></p>   
+         <p> <h3>Cost Price :   <strong>${{$discount}}</strong></h3></p> 
+
+           
         </div>
         <div class="modal-footer">
          
@@ -152,6 +154,58 @@
 <!-- @tatsithol pay modal -->
 
  <div class="modal fade" id="payModal" role="dialog">
+    <div class="modal-dialog">
+
+      <form method="post" action="{{ action('SaleController@create') }}" name="money">
+     @csrf
+        
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Tat Shop</h4>
+        </div>
+        <div class="modal-body">
+          <p><h3>Please carefully check all details: Transaction is non reversable</h3></p>
+
+         <h3>Product           :<strong>{{$newproduct[1]}}</strong></h3>
+
+         <h3>Discount price : <strong>${{$discount}}</h3>
+
+         <h3>Avail Balance   : <strong>${{$newaccount[1]}}</strong></h3>   
+
+
+        </div>
+        <div class="modal-footer">
+
+         <input type="text" name="cost"  value="{{$discount}}" style="display: none;">
+
+          
+         
+       <a href="{{ route('userhome') }}" role="button"  class="btn btn-default" data-dismiss="modal">Close</a>
+      
+
+       <p>     <a class="btn btn-success" role="button" data-toggle="modal" data-target="#pay">Pay Nowe</a> </p> 
+
+       <a> <input type="submit" class="btn btn-success" name="top" value="Pay Nowew"> </a>
+
+      </div>
+
+
+    
+
+      
+    </div>
+
+  </form>
+    
+  </div>
+  
+</div>
+
+<!-- @tatsithol purchase modal -->
+
+<div class="modal fade" id="pay" role="dialog">
     <div class="modal-dialog">
 
         
@@ -189,6 +243,11 @@
   
 </div>
 
+
+
+
+
+<!-- @tatsithol end modal -->
 
                                   
 
