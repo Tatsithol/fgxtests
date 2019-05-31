@@ -105,13 +105,7 @@
              @endsection
                 
 
-                                   <!-- Modal -->
-                           
-                                     
-          
-
-            
-    
+         
 
     <input type="text" name="productCard" id="productCard"  style="display: none;" value={{$discount}}><br/>
                 
@@ -130,7 +124,7 @@
 
          <p> <h3>Cost Price :   <strong>${{$discount}}</strong></h3></p> 
 
-           
+
         </div>
         <div class="modal-footer">
          
@@ -185,9 +179,7 @@
        <a href="{{ route('userhome') }}" role="button"  class="btn btn-default" data-dismiss="modal">Close</a>
       
 
-       <p>     <a class="btn btn-success" role="button" data-toggle="modal" data-target="#pay">Pay Nowe</a> </p> 
-
-       <a> <input type="submit" class="btn btn-success" name="top" value="Pay Nowew"> </a>
+       <a> <input type="submit" class="btn btn-success" name="top" value="Pay Now"> </a>
 
       </div>
 

@@ -47,44 +47,40 @@ class AccountController extends Controller
 
                     $balance = $accounts[1];
 
+  
+                    $acctrans = Acc_tran::where('user_id', $id)->orderBy('user_id', 'ASC')->paginate(20);
 
-                    // $acctrans = Acc_tran::find(4);
+                    foreach ($acctrans as $acctrans => $acctran) {
+                        # code...
 
-
-                    $acctrans = Acc_tran::where('acc_tran.user_id', $id);
-                    //                            ->with('updated_at')
-                    //                            ->with('transaction')
-                    //                             ->with('amount')
-                    //                            ->with('balance')
-                    //                                 ->get()->all();
-
-                     $acctrans = [
-                         "date" => $acctrans->updated_at,
-                        "tansaction" => $acctrans->transaction,
-                        "balance" => $acctrans->balance,
-                        "amount" => $acctrans->amount 
+                        $acctrans = [
+                          "date" => $acctran->created_at,
+                        "tansaction" => $acctran->transaction,
+                        "balance" => $acctran->balance,
+                        "amount" => $acctran->amount 
 
                           ];
 
-              // $acctrans = Acc_tran::
-              //           ->whereExists(function ($query) {
-              //                $query->select(DB::raw(1))
-              //                  ->from('orders')
-              //                   ->whereRaw('Acc_tran.user_id = users.id');
-            // })
-            // ->get();
 
-         echo '<pre>';
-                           print_r($acctrans);
+                          $newacctran = array_values($acctrans);
+
+                          // $date = $acctran['amount'];
+
+                          // $datec = $date;
+
+
+
+                          echo '<pre>';
+                           print_r($newacctran);
                            exit;
 
+                    }
+                        # code...
+                     
 
 
 
-
-
-
-        return view('accounts', compact('userdetail','accounts'));
+        return view('accounts', compact('userdetail','accounts','newacctran'));
 
     }
 
