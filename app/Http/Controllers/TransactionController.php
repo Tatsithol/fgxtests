@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
+
 use Session;
 use App\User;
 use App\Account;
@@ -11,7 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AccountController extends Controller
+
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,8 +22,7 @@ class AccountController extends Controller
     public function index(Request $request)
     {
         //
-
-        // @tatsithol retrieve all accbdetails
+        // @tatsithol retrieve all accdetails
           $user = Auth::user();
 
           $id = Auth::id();
@@ -35,41 +35,46 @@ class AccountController extends Controller
                           ];
         $userdetail   =   array_values($userdetails);
 
-        $email = $userdetail[1];
+        $trans  = Acc_tran::where('user_id', $id)->orderBy('user_id', 'ASC')->paginate(30);
 
-           $accounts = Account::find(1)->where('email', $email)->first();
 
-           $accounts = [
-                        "email" => $accounts->email,
-                        "balance" => $accounts->balance,
-                        "dt"        => Carbon::now()
 
-                    ];
+        // foreach ($trans as $trans) {
+            
+        // $trans = [
+        //                 "balance" => $trans->balance,
+        //                 "amount" => $trans->amount,
+        //                 "created_at" => date($trans->created_at),
+        //                 "transaction" => $trans->transaction
 
-                    $accounts   =   array_values($accounts); 
+        //                   ];
 
-                   
-                    //     // code...
+        //     $trans   =   array_values($trans);
 
+            
+
+
+
+    // }
                     // echo '<pre>';
-                    //        print_r($accounts);
+                    //        print_r($trans);
                     //        exit;
 
+        
 
-        return View('accounts')
+    return View('acctrans')
 
                    ->with(compact('userdetail'))
 
-                          ->with(compact('accounts'));
-
-                             
-
+                    ->with(compact('trans'));     
+                    
+                   
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     // * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {

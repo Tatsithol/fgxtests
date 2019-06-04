@@ -17,30 +17,45 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>transaction</th>
-        <th>amount</th>
         <th>balance</th>
+        <th>Avail Balance</th>
+       
       </tr>
     </thead>
-
-     @foreach($acctran as $acctran)
     <tbody>
-      <tr>
-        <td>{{$acctran[1]}}</td>
-        <td>{{$acctran[1]}}</td>
-        <td>{{$acctran[2]}}</td>
-        td>{{$acctran[3]}}</td>
-      </tr>
+      <td>{{$accounts[2]}}</td> 
+      <td>{{$accounts[1]}}</td>
+      <td>{{$accounts[1]}}</td>
       
-    </tbody>
-    @foreach
-  </table>
-  
 
+
+
+
+    </tbody>
+
+
+
+     
+  </table>
+
+  <form name="trans"  method="get" action="{{action('TransactionController@index') }}"  >
+
+    @csrf
+
+  <div class="caption">
+   
+     <input type="submit" class="btn btn-success" name="purchase" value="Transactions"> 
+                              
+  </div>
+  
+</form>
 
 
 </div>
 
 
+
 @endsection
+
+</div>
 

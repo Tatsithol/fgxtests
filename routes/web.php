@@ -20,6 +20,8 @@ Auth::routes();
 // Route::resource('account', 'AccountController');
 Route::get('/home', 'HomeController@index');
 
+Route::get('/acc_trans', 'TransactionController@index');
+
 
 Route::post('acc_update','Account@index');
 
