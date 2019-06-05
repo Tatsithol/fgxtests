@@ -16,6 +16,11 @@
     <link href="assets/ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
     <link href="assets/css/style.css" rel="stylesheet" />
+
+   
+
+     
+
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -121,6 +126,7 @@
         <!-- /.container-fluid -->
     </nav>
     <div class="container">
+
         
 
 

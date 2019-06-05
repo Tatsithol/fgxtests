@@ -152,6 +152,8 @@ class TopupController extends Controller
                     
                }
 
+         Session::flash('success', 'Your Top up was successfull. Your new balance is $'.$balance. '. You can shop now!!');
+
             return redirect()->route('userhome');
        
 

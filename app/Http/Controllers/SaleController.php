@@ -12,6 +12,8 @@ use App\Productdiscounts;
 
 use App\Acc_tran;
 
+use Session;
+
 use Illuminate\Support\Facades\Auth;
 
 class SaleController extends Controller
@@ -108,6 +110,11 @@ class SaleController extends Controller
               'amount' => $amount , 'balance' => $newbalance,
               'created_at' => date('Y-m-d H:i:s'),
                  'updated_at' => date('Y-m-d H:i:s') ]   );
+
+
+
+       Session::flash('success', 'Your transaction of payment of $'.$amount. ' was successfull. Your new balance is $'.$newbalance. '. You can continue shopping now!!');
+  
 
         return redirect()->route('userhome');
     }

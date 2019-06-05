@@ -5,18 +5,29 @@
 <!-- @tatsithol start inner section changing -->
 
       <div class="row">
+
+        @if(Session::has('success'))
+
+        <div class="alert alert-success" role="alert">
+               <strong>Success:  </strong>{{Session::get('success')}}
+             </div>
+
+        @endif
             <div class="col-md-9">
                 <div class="well well-lg offer-box text-center">
 
 
-                   Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !                
+                   Today's Offer : &nbsp; <span class="glyphicon glyphicon-cog"></span>&nbsp;40 % off  on purchase of $ 2,000 and above till 24 dec !    
+
+
+                    
               
                
                 </div>
         </div>
 
         <!-- this is a section @tatsithol get all data from products-->
-
+        
 
         <div class="row">
          @foreach($products as $products)
