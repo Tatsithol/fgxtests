@@ -1,11 +1,12 @@
 Laravel 5.7
+
 Sql
 
 
 # please download and install composer
-# please download and install
+# please download and install npm
 
-# run composer update
+# run composer update 
 
 # run php artisan migrate
 
