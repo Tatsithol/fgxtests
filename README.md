@@ -12,6 +12,11 @@ Sql
 
 # if your migrations fail please run tatshop1.sql to create your database
 
+# edit the env file to connect to your database
+
+
+
+
 
 
 
